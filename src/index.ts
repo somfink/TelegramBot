@@ -1,8 +1,11 @@
 import express from "express";
 import { Telegraf } from "telegraf";
 
+const BOT_TOKEN = process.env.BOT_TOKEN || "";
+const APP_URL = process.env.APP_URL || "";
+
 const app = express();
-const bot = new Telegraf("<YOUR_TELEGRAM_BOT_TOKEN>");
+const bot = new Telegraf(BOT_TOKEN);
 
 bot.command("start", (ctx) => {
   ctx.reply("Hello! Click the button below to open the web view.", {
@@ -11,7 +14,7 @@ bot.command("start", (ctx) => {
         [
           {
             text: "Open WebView",
-            web_app: { url: "<YOUR_VERCEL_DEPLOYMENT_URL>" },
+            web_app: { url: APP_URL },
           },
         ],
       ],
