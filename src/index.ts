@@ -1,5 +1,8 @@
 import express from "express";
 import { Telegraf } from "telegraf";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const BOT_TOKEN = process.env.BOT_TOKEN || "";
 const APP_URL = process.env.APP_URL || "";
